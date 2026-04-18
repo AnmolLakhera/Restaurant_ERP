@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import {
   LayoutDashboard, ShoppingCart, BookOpen, Package,
   Users, BarChart3, Settings, Monitor, ChefHat, Utensils
@@ -17,9 +16,7 @@ const iconMap = {
   'chef-hat': ChefHat,
 };
 
-export default function Sidebar() {
-  const [activeNav, setActiveNav] = useState(2); // Menu active
-
+export default function Sidebar({ activePage, onPageChange }) {
   return (
     <aside className="sidebar expanded" id="sidebar">
       <div className="sidebar-logo">
@@ -35,11 +32,12 @@ export default function Sidebar() {
       <nav className="sidebar-nav">
         {navItems.map((item, i) => {
           const Icon = iconMap[item.icon];
+          const isActive = item.label.toLowerCase() === activePage;
           return (
             <div
               key={i}
-              className={`nav-item ${i === activeNav ? 'active' : ''}`}
-              onClick={() => setActiveNav(i)}
+              className={`nav-item ${isActive ? 'active' : ''}`}
+              onClick={() => onPageChange(item.label.toLowerCase())}
             >
               {Icon && <Icon size={20} />}
               <span className="nav-item-label">{item.label}</span>
