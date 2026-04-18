@@ -343,7 +343,8 @@ html, body { height: 100%; overflow: hidden; font-family: var(--font); font-size
 
 /* Stat Cards */
 .dash-stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 20px; }
-.dash-stat-card { padding: 18px 20px; border: 1px solid var(--border); border-radius: var(--radius); background: #fff; }
+.dash-stat-card { padding: 18px 20px; border: 1px solid var(--border); border-radius: var(--radius); background: #fff; transition: all var(--transition); cursor: pointer; }
+.dash-stat-card:hover { box-shadow: 0 8px 16px rgba(0,0,0,0.06); border-color: var(--border); }
 .dash-stat-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
 .dash-stat-title { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: var(--text-muted); }
 .dash-stat-icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
